@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern PDF Viewer</title>
+    <title>Mobile PDF Viewer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -95,7 +95,7 @@
     </style>
 </head>
 <body>
-    <h1>Mobile PDF Viewer</h1>
+    <h1>Mo PDF Viewer</h1>
 
     <input type="file" id="pdfUpload" accept="application/pdf" multiple>
     <div id="pdfContainer"></div>
@@ -118,7 +118,9 @@
             pdfWrapper.classList.add('pdf-wrapper');
 
             const pdfFrame = document.createElement('iframe');
-            pdfFrame.src = pdfData;
+            pdfFrame.src = pdfData; // Ensure the PDF is displayed properly
+            pdfFrame.style.width = "100%";
+            pdfFrame.style.height = "400px";
 
             const removeButton = document.createElement('button');
             removeButton.textContent = "Remove PDF";
@@ -130,7 +132,7 @@
                 savePDFs(storedPDFs);
             });
 
-            pdfWrapper.appendChild(pdfFrame);
+            pdfWrapper.appendChild(pdfFrame);  // Ensure iframe is added properly
             pdfWrapper.appendChild(removeButton);
             pdfContainer.appendChild(pdfWrapper);
         }
