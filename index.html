@@ -47,6 +47,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         iframe {
@@ -54,6 +56,7 @@
             height: 400px;
             border: none;
             border-radius: 8px;
+            object-fit: contain;
         }
 
         .remove-btn {
@@ -72,18 +75,27 @@
             background-color: #b52b3a;
         }
 
+        /* Mobile Responsiveness */
         @media screen and (max-width: 768px) {
             #pdfUpload {
-                width: 80%;
+                width: 90%;
             }
+
+            .pdf-wrapper {
+                width: 100%;
+                max-width: 95vw;
+                overflow: auto;
+            }
+
             iframe {
-                height: 300px;
+                height: 250px;
+                object-fit: contain;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Modern PDF Viewer</h1>
+    <h1>Mobile PDF Viewer</h1>
 
     <input type="file" id="pdfUpload" accept="application/pdf" multiple>
     <div id="pdfContainer"></div>
